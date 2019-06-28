@@ -2,14 +2,17 @@
 using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SqlClient;
+using SpeechProApp.Model;
 
-namespace SpeechProApp.Model
+namespace SpeechProApp.BL
 {
     public class DbInfoExtractor
     {
-        private string _connectionStringTemplate = "Server={0};Database={1};User Id={2};Password={3};MultipleActiveResultSets=true;";
+        private string _connectionStringTemplate =
+            "Server={0};Database={1};User Id={2};Password={3};MultipleActiveResultSets=true;";
 
-        public ObservableCollection<Database> BuildDB(string serverName, string database, string username, string password)
+        public ObservableCollection<Database> BuildDB(string serverName, string database, string username,
+            string password)
         {
             ObservableCollection<Database> databases;
             var connectionString = string.Format(_connectionStringTemplate, serverName, database, username, password);
@@ -33,7 +36,8 @@ namespace SpeechProApp.Model
                 using (var connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    var command = new SqlCommand("SELECT * FROM sys.objects where type_desc = 'USER_TABLE'", connection);
+                    var command = new SqlCommand("SELECT * FROM sys.objects where type_desc = 'USER_TABLE'",
+                        connection);
 
                     using (var reader = command.ExecuteReader())
                     {
@@ -47,10 +51,11 @@ namespace SpeechProApp.Model
                     FillAllTablesWithColumnInfo(db, connection);
                 }
             }
+
             return databases;
         }
 
-        private ObservableCollection<Table> GetDatabaseTables(SqlDataReader reader) 
+        private ObservableCollection<Table> GetDatabaseTables(SqlDataReader reader)
         {
             var nameColumnPosition = GetColumnPosition(reader, "name");
 
@@ -65,6 +70,7 @@ namespace SpeechProApp.Model
                 };
                 tables.Add(table);
             }
+
             return tables;
         }
 
@@ -83,6 +89,7 @@ namespace SpeechProApp.Model
                 };
                 databases.Add(database);
             }
+
             return databases;
         }
 
@@ -127,7 +134,7 @@ namespace SpeechProApp.Model
         {
             var type = reader.GetFieldType(columnPosition);
             var name = reader.GetName(columnPosition);
-            var sqltype = (SqlDbType)(int)reader.GetSchemaTable().Rows[columnPosition]["ProviderType"];
+            var sqltype = (SqlDbType) (int) reader.GetSchemaTable().Rows[columnPosition]["ProviderType"];
             var column = new Column
             {
                 DotnetType = type,

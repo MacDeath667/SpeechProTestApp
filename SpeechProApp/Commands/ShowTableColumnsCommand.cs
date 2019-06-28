@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Input;
-using SpeechProApp;
 using SpeechProApp.Model;
 
 namespace SpeechProApp.Commands

@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using SpeechProApp.Model;
+using SpeechProApp.BL;
 
 namespace SpeechProApp.Commands
 {
