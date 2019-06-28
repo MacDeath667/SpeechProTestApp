@@ -3,7 +3,6 @@ using System.Data.SqlClient;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using SpeechProApp;
 using SpeechProApp.Model;
 
 namespace SpeechProApp.Commands
@@ -46,7 +45,7 @@ namespace SpeechProApp.Commands
         public event EventHandler CanExecuteChanged
         {
             add => CommandManager.RequerySuggested += value;
-            remove => CommandManager.RequerySuggested -= value; //snatched from StackOverflow
+            remove => CommandManager.RequerySuggested -= value;
         }
     }
 }

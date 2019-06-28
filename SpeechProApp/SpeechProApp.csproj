@@ -88,7 +88,7 @@
     <Compile Include="Commands\ShowTableColumnsCommand.cs" />
     <Compile Include="Model\Column.cs" />
     <Compile Include="Model\Database.cs" />
-    <Compile Include="Model\DbInfoExtractor.cs" />
+    <Compile Include="BL\DbInfoExtractor.cs" />
     <Compile Include="Model\Table.cs" />
     <Compile Include="Utils\BaseNotifyPropertyChanged.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
