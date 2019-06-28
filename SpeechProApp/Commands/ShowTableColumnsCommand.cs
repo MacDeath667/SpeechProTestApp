@@ -25,7 +25,7 @@ namespace SpeechProApp.Commands
         public event EventHandler CanExecuteChanged
         {
             add => CommandManager.RequerySuggested += value;
-            remove => CommandManager.RequerySuggested -= value; //snatched from StackOverflow
+            remove => CommandManager.RequerySuggested -= value;
         }
     }
 }

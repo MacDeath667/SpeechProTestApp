@@ -48,17 +48,7 @@ namespace SpeechProApp
             }
         }
 
-        public Visibility IsCollapsedParams // use converter, luke
-        {
-            get => _isCollapsedParams;
-            set
-            {
-                _isCollapsedParams = value;
-                OnPropertyChanged();
-            }
-        } 
-
-        public string Username
+         public string Username
         {
             get => _username;
             set

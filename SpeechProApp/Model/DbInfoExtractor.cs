@@ -50,7 +50,7 @@ namespace SpeechProApp.Model
             return databases;
         }
 
-        private ObservableCollection<Table> GetDatabaseTables(SqlDataReader reader) // todo getserverdatabase and this - can I join?
+        private ObservableCollection<Table> GetDatabaseTables(SqlDataReader reader) 
         {
             var nameColumnPosition = GetColumnPosition(reader, "name");
 
